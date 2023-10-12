@@ -1,0 +1,71 @@
+DARDOS
+
+ELEMENTOS DE ENTRADA:
+NombreJugador1,NombreJugador2,NombreJugador3 como String;
+
+VARIABLES
+PuntuacionInicial -- Entero
+ContadorRonda -- Entero (Servira para controlar las rondas)
+Bool -- Boleano (Controlara las rondas y cortara el programa si gana un jugador)
+NombreJugador1
+NombreJugador2
+NombreJugador3
+
+ELEMENTOS DE SALIDA:
+NombreJugador# [Puntuacion] [RondaGanadora]
+
+
+
+PROCEDIMIENTO:
+
+Pedir(NombreJugador1, NombreJugador2, NombreJugador3)
+Leer(NombreJugador1, NombreJugador2, NombreJugador3)
+PuntuacionInicial = 121
+Guardamos NombreJugador1, NombreJugador2, NombreJugador3 y PuntuacionInicial en una clase llamada Jugadores
+
+clase Jugadores():
+    Funcion1 Mostrar:
+        mostrar(NombreJugador y su respectiva puntuacion)
+
+    Funcion2 TirarDardos:
+        tiro1 = numero aleatorio entre 0 y 50
+        tiro2 = numero aleatorio entre 0 y 50         
+        tiro3 = numero aleatorio entre 0 y 50
+        mostrar(tiro1, tiro2, tiro3)
+        PuntosJugador = PuntuacionInicial - tiro1 - tiro2 - tiro3
+        mostrar(PuntosJugador)
+        devuelve(PuntosJugador)
+
+    Funcion3 ControlPuntos(Puntos,Ronda):
+        si (PuntosJugador <= 0):
+            mostrar(NombreJugador "gana la partida con" PuntosJugador "puntos en la ronda" Ronda)
+        FIN_SI
+
+ContadorRonda = 1
+Bool = cierto
+Mientras (contador sea menor o igual a 3 y Bool sea cierto):
+    muestra(ContadorRonda)
+
+    llamamos a la funcion Mostrar con los valores del jugador1
+    VariableTemporal_1 = llamamos a la funcion TirarDardos con los valores del jugador1
+    cogelamos el programa 1s
+    llamamos a la funcion Mostrar con los valores del jugador2
+    VariableTemporal_2 = llamamos a la funcion TirarDardos con los valores del jugador2
+    cogelamos el programa 1s
+    llamamos a la funcion Mostrar con los valores del jugador3
+    VariableTemporal_2 = llamamos a la funcion TirarDardos con los valores del jugador3
+
+    si(VariableTemporal_1 <= 0 o VariableTemporal_2 <= 0 o VariableTemporal_3 <= 0):
+        si(VariableTemporal_1 <= 0):
+            Llamamos a la funcion controlpuntos con los datos de jugador 1 pasando los parametros de (VariableTemporal_1, ContadorRonda)
+        FIN_SI
+        si(VariableTemporal_2 <= 0):
+            Llamamos a la funcion controlpuntos con los datos de jugador 2 pasando los parametros de (VariableTemporal_2, ContadorRonda)
+        FIN_SI
+        si(VariableTemporal_3 <= 0):
+            Llamamos a la funcion controlpuntos con los datos de jugador 3 pasando los parametros de (VariableTemporal_3, ContadorRonda)
+        FIN_SI
+    FIN_SI    
+    sino si (ContadorRonda es igual a 3 y (VariableTemporal_1 >= 0 o VariableTemporal_2 >= 0 o VariableTemporal_3 >= 0)):
+        muestra ("Nadie ha llegado a 0 puntos o menos, la partida termina")
+    ContadorRonda = ContadorRonda + 1;
